@@ -1,6 +1,6 @@
 module Main where
 
-import BF
+import BFCoalgebra
 
 main :: IO ()
-main = putStrLn "foo"
+main = return ()
