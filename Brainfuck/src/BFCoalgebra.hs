@@ -57,9 +57,8 @@ step (instrs, cells) =
 
 runBrainfuck :: String -> IO ()
 runBrainfuck instrString =
-  do _ <- unfoldTraceM
-            (Focused [] (head instrs) (tail instrs), initialCellFocus)
-            step
+  do _ <- unfoldTraceM machine step
      return ()-- (map fst ms)
   where
     instrs = instrString >>= charToInstr
+    machine = (Focused [] (head instrs) (tail instrs), initialCellFocus)
