@@ -107,6 +107,20 @@ data Instruction = MoveRight
   deriving (Show)
 
 
+-- | We can convert from a string to the corresponding `Instruction`s
+
+charToInstr :: Char -> [Instruction]
+charToInstr '>' = [MoveRight]
+charToInstr '<' = [MoveLeft]
+charToInstr '+' = [Increment]
+charToInstr '-' = [Decrement]
+charToInstr '.' = [Output]
+charToInstr ',' = [Input]
+charToInstr '[' = [JumpForwardIfZero]
+charToInstr ']' = [JumpBackIfNonZero]
+charToInstr _ = []
+
+
 -- | An `InstructionFocus` represents the current instruction being processed,
 -- together with the rest of the program around it. This takes the place of
 -- an instruction array and instruction pointer.

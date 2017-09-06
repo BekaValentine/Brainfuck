@@ -63,12 +63,3 @@ runBrainfuck instrString =
      return ()-- (map fst ms)
   where
     instrs = instrString >>= charToInstr
-    charToInstr '>' = [MoveRight]
-    charToInstr '<' = [MoveLeft]
-    charToInstr '+' = [Increment]
-    charToInstr '-' = [Decrement]
-    charToInstr '.' = [Output]
-    charToInstr ',' = [Input]
-    charToInstr '[' = [JumpForwardIfZero]
-    charToInstr ']' = [JumpBackIfNonZero]
-    charToInstr _ = []
